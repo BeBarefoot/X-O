@@ -1,0 +1,48 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <title> X AND O</title>
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body onload="startGame()">
+
+    <div class="header ">
+        <header>
+            PLAY X/O OR DIE
+        </header>
+        <h3 id="who"> Who Are U Playing Against? </h3>
+
+    </div>
+
+
+    <table id="table">
+        <div id="hideS" class="sideChoose">
+            <button class="chooseP" onclick=" decPlayerCPU()"> CPU</button>
+            <button class="chooseP" onclick=" decPlayer()">PERSON DUDE</button>
+
+        </div>
+        <div id="massage"> </div>
+        <tr class="box">
+            <td class="cell" id="cell0" onClick="nextMove(this)"></td>
+            <td class="cell" id="cell1" onClick="nextMove(this)"></td>
+            <td class="cell" id="cell2" onClick="nextMove(this)"></td>
+        </tr>
+        <tr class="box">
+            <td class="cell" id="cell3" onClick="nextMove(this)"></td>
+            <td class="cell" id="cell4" onClick="nextMove(this)"></td>
+            <td class="cell" id="cell5" onClick="nextMove(this)"></td>
+        </tr>
+        <tr class="box">
+            <td class="cell" id="cell6" onClick="nextMove(this)"></td>
+            <td class="cell" id="cell7" onClick="nextMove(this)"></td>
+            <td class="cell" id="cell8" onClick="nextMove(this)"></td>
+        </tr>
+    </table>
+    <div id="endGame"> </div>
+    <button id="replay" class="replay" onclick="startGame() ">AGAIN!!</button>
+
+    <script src="XO.js "></script>
+</body>
