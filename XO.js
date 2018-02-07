@@ -32,10 +32,8 @@ function decPlayer() {
     showTable.style.display = 'block';
     document.getElementById("who").innerText = null;
     if (Math.random() > 0.5) {
-        (document.turn = oPlayer)
         namePlayer(oPlayer)
     } else {
-        (document.turn = xPlayer)
         namePlayer(xPlayer)
     }
 }
@@ -46,29 +44,28 @@ function decPlayerCPU() {
     showTable.style.display = "block";
     document.getElementById("who").innerText = null;
     if (Math.random() > 0.5) {
-        (document.turn = oPlayer);
         namePlayer(oPlayer);
         playCPU();
     } else {
-        (document.turn = xPlayer)
         namePlayer(xPlayer)
     }
 }
 
 //declare names in massage
-const namePlayer = (name => msg.innerText = (name + " Gets to start!"))
+function namePlayer(name) {
+    msg.innerText = (name + " Gets to start!"),
+        document.turn = name
+}
 
 //next move after start game
 function nextMove(cell) {
     if (cpuPlayer == '' && cell.innerText == '') {
         cell.innerText = document.turn;
         switchPlayer();
-
     } else if (cpuPlayer == 1 && cell.innerText == '') {
         cell.innerText = document.turn;
         switchPlayerCPU();
     }
-
 }
 
 //switch CPU players
