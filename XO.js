@@ -1,4 +1,4 @@
-var reset;
+var result = false;
 var replay = document.getElementById('replay');
 var Choose = document.getElementsByClassName('.chooseP');
 var showTable = document.getElementById("table");
@@ -10,11 +10,11 @@ var msg = document.getElementById('massage');
 var hideS = document.getElementById('hideS');
 
 //hide display of element
-function displayNone(element) {
-    element.style.display = 'none';
-}
+const displayNone = (element => element.style.display = 'none')
+
 //clean table and declare who starts
 function startGame() {
+    result = false;
     hideS.style.display = 'block';
     displayNone(showTable)
     for (var i = 0; i <= 8; i++) {
@@ -56,9 +56,8 @@ function decPlayerCPU() {
 }
 
 //declare names in massage
-function namePlayer(name) {
-    return msg.innerText = (name + " Gets to start!")
-}
+const namePlayer = (name => msg.innerText = (name + " Gets to start!"))
+
 //next move after start game
 function nextMove(cell) {
     if (cpuPlayer == '' && cell.innerText == '') {
@@ -96,9 +95,7 @@ function switchPlayer() {
     }
 }
 
-function reset(number) {
-    document.getElementById("cell" + number).innerText = ''
-}
+const reset = (number => document.getElementById("cell" + number).innerText = '')
 
 //determine where to move CPU
 var ranNum = Math.floor((Math.random() * 8) + 0)
@@ -129,7 +126,6 @@ function winTie() {
 }
 
 function checkWin(player) {
-    let result = false;
     if (checkCell(0, 1, 2, player) ||
         checkCell(3, 4, 5, player) ||
         checkCell(6, 7, 8, player) ||
@@ -145,16 +141,14 @@ function checkWin(player) {
 
 //conditions of a win
 function checkCell(a, b, c, player) {
-    let result = false;
     if (getCell(a) == player && getCell(b) == player && getCell(c) == player) {
         result = true
     }
     return result;
 }
 //get cell content
-function getCell(number) {
-    return document.getElementById("cell" + number).innerText;
-}
+const getCell = (number => document.getElementById("cell" + number).innerText)
+
 //declaring winner
 function endGame() {
     blockDis();
@@ -171,7 +165,6 @@ function blockDis() {
 
 //check 4 tie
 function tieCheck() {
-    let result = false;
     for (let i = 0; i <= 8; i++) {
         if (getCell(0) != '' &&
             getCell(1) !== '' &&
